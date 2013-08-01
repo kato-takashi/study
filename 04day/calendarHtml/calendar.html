@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>
+			<?php  
+			print($title); 
+			?>
+		</title>
+		</head>
+		<body>
+			
+		<h1>
+			<?php 
+			print(date('Y年m月', $current)."のカレンダ");
+			?>
+		</h1>
+		<table border="1" width="300">
+			<tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+			</tr>
+			<?php
+				for($i = 1; $i <= $first_day + $last_day; $i++){
+					if($i % 7 == 1 ){
+						print('<tr>');
+					}
+					if($i>$first_day){
+						print('<td>'.($i-$first_day).'</td>');
+					}else{
+						print('<td>&nbsp;</td>');
+					}
+					if($i%7==0){
+						print('</tr>');
+					}
+				}
+			?>
+		</table>
+	</body>
+</html>
